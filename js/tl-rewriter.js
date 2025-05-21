@@ -56,7 +56,6 @@ class TLReWriter {
      * - 全角のコロンや数字を半角に変換する。
      * - 時間を秒数で計算して指定のオフセットで調整する。
      * - 結果をMM:SS形式で返する。
-     * - 改行文字を<br>タグに置換する。
      *
      * @param {string} inputString - 元のタイムライン文字列
      * @param {string|number} offset - 調整するオフセット時間（秒）
@@ -98,9 +97,6 @@ class TLReWriter {
         }
 
         convertedString += preConvertedString;
-
-        // 改行を <br> に変換
-        convertedString = convertedString.replace(/\n/g, '<br>');
 
         return convertedString;
     }
