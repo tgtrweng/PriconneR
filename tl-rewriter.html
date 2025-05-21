@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>プリコネR TL再計算ツール</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="./js/tl-rewriter.js"></script>
+  <script src="./js/text-copier.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="my-3">
+      <h2>TL再計算</h2>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2">
+      <div class="col mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">TL入力</h4>
+            <div class="overflow-auto">
+              <textarea id="tlInput" class="form-control" rows="20" placeholder="ここにTLを入力"></textarea>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="row justify-content-evenly">
+              <div class="col-6">
+                <select id="timeInput" class="form-select"> 
+                  <option value="90" selected>1:30</option>
+                  <option value="89">1:29</option>
+                  <option value="88">1:28</option>
+                  <option value="87">1:27</option>
+                  <option value="86">1:26</option>
+                  <option value="85">1:25</option>
+                  <option value="84">1:24</option>
+                  <option value="83">1:23</option>
+                  <option value="82">1:22</option>
+                  <option value="81">1:21</option>
+                  <option value="80">1:20</option>
+                  <option value="79">1:19</option>
+                  <option value="78">1:18</option>
+                  <option value="77">1:17</option>
+                  <option value="76">1:16</option>
+                  <option value="75">1:15</option>
+                  <option value="74">1:14</option>
+                  <option value="73">1:13</option>
+                  <option value="72">1:12</option>
+                  <option value="71">1:11</option>
+                  <option value="70">1:10</option>
+                  <option value="69">1:09</option>
+                  <option value="68">1:08</option>
+                  <option value="67">1:07</option>
+                  <option value="66">1:06</option>
+                  <option value="65">1:05</option>
+                  <option value="64">1:04</option>
+                  <option value="63">1:03</option>
+                  <option value="62">1:02</option>
+                  <option value="61">1:01</option>
+                  <option value="60">1:00</option>
+                  <option value="59">0:09</option>
+                  <option value="58">0:58</option>
+                  <option value="57">0:57</option>
+                  <option value="56">0:56</option>
+                  <option value="55">0:55</option>
+                  <option value="54">0:54</option>
+                  <option value="53">0:53</option>
+                  <option value="52">0:52</option>
+                  <option value="51">0:51</option>
+                  <option value="50">0:50</option>
+                  <option value="49">0:49</option>
+                  <option value="48">0:48</option>
+                  <option value="47">0:47</option>
+                  <option value="46">0:46</option>
+                  <option value="45">0:45</option>
+                  <option value="44">0:44</option>
+                  <option value="43">0:43</option>
+                  <option value="42">0:42</option>
+                  <option value="41">0:41</option>
+                  <option value="40">0:40</option>
+                  <option value="39">0:39</option>
+                  <option value="38">0:38</option>
+                  <option value="37">0:37</option>
+                  <option value="36">0:36</option>
+                  <option value="35">0:35</option>
+                  <option value="34">0:34</option>
+                  <option value="33">0:33</option>
+                  <option value="32">0:32</option>
+                  <option value="31">0:31</option>
+                  <option value="30">0:30</option>
+                  <option value="29">0:29</option>
+                  <option value="28">0:28</option>
+                  <option value="27">0:27</option>
+                  <option value="26">0:26</option>
+                  <option value="25">0:25</option>
+                  <option value="24">0:24</option>
+                  <option value="23">0:23</option>
+                  <option value="22">0:22</option>
+                  <option value="21">0:21</option>
+                  <option value="20">0:20</option>
+                  <option value="19">0:19</option>
+                  <option value="18">0:18</option>
+                  <option value="17">0:17</option>
+                  <option value="16">0:16</option>
+                  <option value="15">0:15</option>
+                  <option value="14">0:14</option>
+                  <option value="13">0:13</option>
+                  <option value="12">0:12</option>
+                  <option value="11">0:11</option>
+                  <option value="10">0:10</option>
+                  <option value="9">0:09</option>
+                  <option value="8">0:08</option>
+                  <option value="7">0:07</option>
+                  <option value="6">0:06</option>
+                  <option value="5">0:05</option>
+                  <option value="4">0:04</option>
+                  <option value="3">0:03</option>
+                  <option value="2">0:02</option>
+                  <option value="1">0:01</option>
+                </select>
+              </div>
+              <div class="col-auto">
+                <button id="tlSubmit" class="btn btn-success">変換する</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <div class="row justify-content-between">
+              <div class="col">
+                <h4 class="card-title">TL出力</h4>
+              </div>
+              <div class="col col-auto">
+                <button class="btn btn-sm btn-outline-secondary copy-btn" data-bs-toggle="tooltip" data-bs-title="Tooltip on top" data-target="tlOutput"><i class="fa-solid fa-clipboard"></i></button>
+              </div>
+            </div>
+            <div class="overflow-auto">
+              <textarea id="tlOutput" class="form-control" rows="22" placeholder="ここにTLを出力" readonly></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+</body>
+</html>
